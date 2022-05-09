@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang='en' class='notranslate' translate='no'>
+      <head>
+        <meta name='google' content='notranslate' />
+        <meta charset='UTF-8'>
+        <meta name='description' content='Web application template using pyscript plugin to run python scripts in-browser.'>
+        <meta name='keywords' content='JavaScript,CSS,Bootstrap,HTML,python,pyscript'>
+        <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv='Content-Language' content='en' />
+
+        <link rel="icon" href="img/favicon-16x16.ico" type="image/x-icon" sizes="16x16">
+        <link rel="icon" href="img/favicon-32x32.ico" type="image/x-icon" sizes="32x32">
+        <link rel="icon" href="img/favicon-48x48.ico" type="image/x-icon" sizes="48x48">
+
+        <meta name='msapplication-TileColor' content='#ffffff' />
+        <meta name='theme-color' content='#ffffff' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='HandheldFriendly' content='True' />
+        <meta name='MobileOptimized' content='320' />  
+        <meta http-equiv='Content-Security-Policy' content='upgrade-insecure-requests' />
+        <link href='css/bootstrap-4.5.2.min.css' rel='stylesheet' />
+        <link href='css/offcanvas.css' rel='stylesheet' />
+        <link rel="stylesheet" href="css/pyscript.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <title>Running Python Scripts in HTML5 Browser | Uses plugin pyscript</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+<!-- <py-env>
+- './static/wheels/micropip-0.1-py3-none-any.whl'
+- './static/wheels/packaging-21.3-py3-none-any.whl'
+- './static/wheels/pyparsing-3.0.7-py3-none-any.whl'
+</py-env> -->
+        <div class='container' style="height: calc(100% - 50px);">
+            <p id="copyrightBanner">© Copyright <span id="yearDisplay"></span> | Created by <a href="https://medium.com/@geek-cc" class="btn btn-sm btn-link p-0 m-0" target="_blank">the Girl with a ribbon</a> ξ(🎀˶❛◡❛) | Built with <a href="https://pyscript.net/" class="btn btn-sm btn-link p-0 m-0" target="_blank">&lt;pyscript&gt;</a> JavaScript plugin</p>
+            <div class='row h-100'>
+                <div class='col-sm-12 col-12 h-100'>
+                  <div class="card rounded-0 h-100">
+                    <div class="card-header p-1"><code></code><span class='custom-card-title'>List of pyscript tags</span></div>
+                    <div class="card-body p-0">
+
+                        <table id='table-of-contents' class='table table-bordered table-condensed w-100 h-100 text-center mb-0 p-0'>
+                            <thead>
+                                <tr>
+                                    <th class='small w-50'><strong>Code Snippet</strong></th>
+                                    <th class='small w-50'><strong>Final Output</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class='h-50'>
+                                    <td class='small' rowspan='2'>
+                                        <code>&lt;py-script&gt;print('Hello, World!')&lt;/py-script&gt;</code>
+                                    </td>
+                                    <td class='small'>
+                                        <py-script>print('Hello, World!')</py-script>
+                                    </td>
+                                </tr>
+                                <tr class='h-50'>
+                                    <td class='small'>
+                                        <div class='pyWrapper'>
+                                            <b><p>Today is <u><label id='today'></label></u></p></b><br>
+                                            <div id="pi" class="alert alert-primary rounded-0"></div>
+    <py-script>
+import datetime as dt
+pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
+
+def wallis(n):
+    pi = 2
+    for i in range(1,n):
+        pi *= 4 * i ** 2 / (4 * i ** 2 - 1)
+    return pi
+
+pi = wallis(100000)
+pyscript.write('pi', f'π is approximately {pi:.3f}')
+    </py-script>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class='small'>
+                                        <pre>
+                                        &lt;py-env&gt;
+                                        &Tab;- numpy
+                                        &Tab;- matplotlib
+                                        &lt;/py-env&gt;
+                                        </pre>
+
+                                        <pre>
+                                        &lt;py-script output="plot"&gt;
+                                        import matplotlib.pyplot as plt
+                                        import numpy as np
+
+                                        x = np.random.randn(1000)
+                                        y = np.random.randn(1000)
+
+                                        fig, ax = plt.subplots()
+                                        ax.scatter(x, y)
+                                        fig
+                                        &lt;/py-script&gt;
+                                        </pre>
+                                    </td>
+                                    <td class='small'>
+                                    <div class='pyWrapper'>
+    <py-env>
+- numpy
+- matplotlib
+    </py-env>
+                                        <h1>Let's plot random numbers</h1>
+                                        <div id="plot"></div>
+    <py-script output="plot">
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.randn(1000)
+y = np.random.randn(1000)
+
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
+    </py-script>
+                                    </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                     
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script defer src="js/pyscript.js"></script>
+        <script src='js/polyfill.js'></script>
+        <script src='js/ie10-viewport-bug-workaround.js'></script>
+        <script src='js/bootstrap-native-v4.js'></script>
+        <script>
+            if (document.readyState === 'complete' || document.readyState !== 'loading' && !document.documentElement.doScroll) {
+                callback();
+            } else {
+                document.addEventListener('DOMContentLoaded', async() => {
+                    console.log('DOMContentLoaded');
+
+                    /* TO DO LOGIC HERE */
+                });
+            }
+
+        </script>
+      </body>
+</html>
