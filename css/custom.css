@@ -22,7 +22,7 @@ body {
     width: calc(100vw - 0.45em);
     overflow:none;
 }
-div.container:first-child {
+div.container-fluid:first-child {
    overflow:none;
 }
 input[type=file] {
@@ -41,10 +41,17 @@ span.custom-card-title {
     height:100%;
     overflow:auto;
 }
-
+div.card {
+    border:none;
+}
 #copyrightBanner {
     box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
     padding: 0.45rem 0.35rem;
     margin-block-start: 0;
     margin-block-end: 0;
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    left: 0;
+    right: 0;
 }
